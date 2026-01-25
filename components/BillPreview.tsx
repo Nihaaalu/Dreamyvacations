@@ -141,7 +141,46 @@ const BillPreview: React.FC<BillPreviewProps> = ({ data, isPdf = false }) => {
           <div className="bg-white p-6 rounded-2xl border-2 border-black flex flex-col justify-between h-fit md:h-full">
             <div className="space-y-4">
               <h3 className="text-black font-bold uppercase tracking-wider text-xs pb-1 border-b border-[#E0E0E0]">Payment Summary</h3>
-              <div className="flex justify-between items-center text-lg">
+              
+              {/* Payment Method Details */}
+              {data.paymentMethod && (
+                <div className="text-[11px] font-medium text-black/80 space-y-1 py-1">
+                  <p className="flex justify-between border-b border-black/5 pb-0.5">
+                    <span className="uppercase text-[9px] font-bold tracking-wider text-black">Payment Method:</span>
+                    <span>{data.paymentMethod === 'perPerson' ? 'Per Person' : data.paymentMethod === 'perRoom' ? 'Per Room' : 'Full Payment'}</span>
+                  </p>
+                  
+                  {data.paymentMethod === 'perPerson' && (
+                    <div className="pt-0.5">
+                      <p className="flex justify-between">
+                        <span>Adults: {data.adults} × ₹{data.amtPerAdult}</span>
+                        <span>₹{data.adults * data.amtPerAdult}</span>
+                      </p>
+                      {data.children > 0 && (
+                        <p className="flex justify-between">
+                          <span>Children: {data.children} × ₹{data.amtPerChild}</span>
+                          <span>₹{data.children * data.amtPerChild}</span>
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {data.paymentMethod === 'perRoom' && (
+                    <div className="pt-0.5">
+                      <p className="flex justify-between">
+                        <span>Rooms: {data.numRooms} × ₹{data.amtPerRoom}</span>
+                        <span>₹{data.numRooms * data.amtPerRoom}</span>
+                      </p>
+                    </div>
+                  )}
+
+                  {data.paymentMethod === 'fullPayment' && (
+                    <p className="italic text-[10px] text-black/60 pt-0.5">Amount entered manually</p>
+                  )}
+                </div>
+              )}
+
+              <div className="flex justify-between items-center text-lg pt-1 border-t border-black/10">
                 <span className="text-black font-normal">Total Room Rent:</span>
                 <span className="font-bold text-black">₹ {data.roomRent}</span>
               </div>
