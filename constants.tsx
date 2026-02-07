@@ -5,7 +5,7 @@ export const RESORT_DETAILS: ResortDetails = {
   name: "Dreamy Vacations",
   address: "Kushalnagar Coorg",
   googleMaps: "https://maps.app.goo.gl/Ce1XYeoE9D8vLveV7",
-  phone: ["+91 99029 60484", "+91 7736316454"],
+  phone: ["+91 99029 60484"],
   email: "dreamyvacation6@gmail.com"
 };
 
