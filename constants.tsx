@@ -12,6 +12,7 @@ export const RESORT_DETAILS: ResortDetails = {
 export const ROOM_TYPES: RoomType[] = [
   RoomType.ROOM,
   RoomType.COTTAGE
+  RoomType.ROOM&COTTAGE
 ];
 
 export const PLATFORMS: BookingPlatform[] = [
