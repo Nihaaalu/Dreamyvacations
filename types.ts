@@ -2,6 +2,7 @@
 export enum RoomType {
   ROOM = 'Room',
   COTTAGE = 'Cottage'
+  ROOM COTTAGE = 'Room + Cottage'
 }
 
 export enum BookingPlatform {
